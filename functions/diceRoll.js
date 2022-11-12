@@ -20,7 +20,7 @@ module.exports = function (message, authorID) {
                     var rand = Math.random()
                     result.push(Math.floor(rand * sides) + 1)
                 }
-                result = result.sort().reverse()
+                result = result.sort(function(a, b){return a-b}).reverse()
                 let suma = result.reduce((a, b) => a + b, 0)
                 suma = suma + mathArg1
                 suma = suma * mathArg2
@@ -66,7 +66,7 @@ module.exports = function (message, authorID) {
                     var rand = Math.random()
                     result.push(Math.floor(rand * sides) + 1)
                 }
-                result = result.sort().reverse()
+                result = result.sort(function(a, b){return a-b}).reverse()
                 let suma = result.reduce((a, b) => a + b, 0)
                 if (message.match(/\+/)) {
                     suma = suma + mathArg
@@ -110,7 +110,7 @@ module.exports = function (message, authorID) {
                     var rand = Math.random()
                     result.push(Math.floor(rand * sides) + 1)
                 }
-                result = result.sort().reverse()
+                result = result.sort(function(a, b){return a-b}).reverse()
                 let suma = result.reduce((a, b) => a + b, 0)
                 for (let i = 0; i < dice; i++) {
                     if (result[i] == 1 | result[i] == sides)
@@ -140,7 +140,7 @@ module.exports = function (message, authorID) {
                 var rand = Math.random()
                 result.push(Math.floor(rand * sides) + 1)
             }
-            result = result.sort().reverse()
+            result = result.sort(function(a, b){return a-b}).reverse()
             let suma = result.reduce((a, b) => a + b, 0)
             suma = suma + mathArg1
             suma = suma * mathArg2
@@ -179,7 +179,7 @@ module.exports = function (message, authorID) {
                 var rand = Math.random()
                 result.push(Math.floor(rand * sides) + 1)
             }
-            result = result.sort().reverse()
+            result = result.sort(function(a, b){return a-b}).reverse()
             let suma = result.reduce((a, b) => a + b, 0)
             if (message.match(/\+/)) {
                 suma = suma + mathArg
@@ -217,7 +217,7 @@ module.exports = function (message, authorID) {
                     var rand = Math.random()
                     result.push(Math.floor(rand * sides) + 1)
                 }
-            result = result.sort().reverse()
+            result = result.sort(function(a, b){return a-b}).reverse()
             let suma = result.reduce((a, b) => a + b, 0)
             for (let i = 0; i < dice; i++) {
                 if (result[i] == 1 | result[i] == sides)
