@@ -22,8 +22,8 @@ or
 ```
 
 # How it works
-Syntax of commands is simple, `x`#`y`d`z` where `x` is number of times repeat a throws, `y` is number of sides in dice.
-So throm like
+Syntax of commands is simple, `x`#`y`d`z` where `x` is number of times to repeat throws, `y` is number of dices and `z` is number of sides in dice.
+So throw 'em like that
 ```
 2#3d6
 ```
