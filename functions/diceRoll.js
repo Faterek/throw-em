@@ -6,7 +6,6 @@ module.exports = function (message, authorID) {
             let arg2 = arg1[1].split(/[d]/i)
             let arg3 = arg2[1].split('+')
             let arg4 = arg3[1].split('*')
-            // message.channel.send(`Arguments21372: ${arg1[0]},${arg2[0]},${arg3[0]},${arg4} `)
             let wiadomosc = ""
             let timesToRepeat = arg1[0]
             while (timesToRepeat > 0) {
@@ -54,7 +53,6 @@ module.exports = function (message, authorID) {
                 arg3 = arg2[1].split('/')
             }
 
-            // message.channel.send(`Arguments1: ${arg1[0]},${arg2[0]},${arg3} `)
             let wiadomosc = ""
             let timesToRepeat = arg1[0]
             while (timesToRepeat > 0) {
@@ -101,7 +99,6 @@ module.exports = function (message, authorID) {
         if (message.match(/[0-9]+[#][0-9]+[d][0-9]+[s]/i)) {
             let arg1 = message.trim().split('#')
             let arg2 = arg1[1].split(/[d]/i)
-            // message.channel.send(`Arguments2: ${arg1[0]},${arg2} `)
             let wiadomosc = ""
             let timesToRepeat = arg1[0]
             while (timesToRepeat > 0) {
@@ -133,7 +130,6 @@ module.exports = function (message, authorID) {
             let arg1 = message.trim().split(/[d]/i)
             let arg2 = arg1[1].split('+')
             let arg3 = arg2[1].split('*')
-            // message.channel.send(`ArgumentsXD: ${arg1[0]},${arg2[0]},${arg3} `)
             let resultFormatted = ""
             let dice = parseInt(arg1[0])
             let sides = parseInt(arg2[0])
@@ -173,7 +169,6 @@ module.exports = function (message, authorID) {
             }else if (message.match(/\//)) {
                 arg2 = arg1[1].split('/')
             }
-            // message.channel.send(`Arguments3: ${arg1[0]},${arg2} `)
             let additionalMessage = ""
             let resultFormatted = ""
             let dice = parseInt(arg1[0])
@@ -214,7 +209,6 @@ module.exports = function (message, authorID) {
 
         if (message.match(/[0-9]+[d][0-9]+[s]/i)) {
             let arg = message.trim().split(/[d]/i)
-            // message.channel.send(`Arguments4: ${arg} `)
             let resultFormatted = ""
             let dice = parseInt(arg[0])
             let sides = parseInt(arg[1])
@@ -243,7 +237,6 @@ module.exports = function (message, authorID) {
             let arg2 = arg1[1].split(/[d]/i)
             let arg3 = arg2[1].split('+')
             let arg4 = arg3[1].split('*')
-            // message.channel.send(`Arguments2137: ${arg1[0]},${arg2[0]},${arg3[0]},${arg4} `)
             let wiadomosc = ""
             let timesToRepeat = arg1[0]
             while (timesToRepeat > 0) {
@@ -290,7 +283,6 @@ module.exports = function (message, authorID) {
                 arg3 = arg2[1].split('/')
             }
 
-            // message.channel.send(`Arguments1: ${arg1[0]},${arg2[0]},${arg3} `)
             let wiadomosc = ""
             let timesToRepeat = arg1[0]
             while (timesToRepeat > 0) {
@@ -336,7 +328,6 @@ module.exports = function (message, authorID) {
         if (message.match(/[0-9]+[#][0-9]+[d][0-9]+/i)) {
             let arg1 = message.trim().split('#')
             let arg2 = arg1[1].split(/[d]/i)
-            // message.channel.send(`Arguments2: ${arg1[0]},${arg2} `)
             let wiadomosc = ""
             let timesToRepeat = arg1[0]
             while (timesToRepeat > 0) {
@@ -367,7 +358,6 @@ module.exports = function (message, authorID) {
             let arg1 = message.trim().split(/[d]/i)
             let arg2 = arg1[1].split('+')
             let arg3 = arg2[1].split('*')
-            // message.channel.send(`ArgumentsXD: ${arg1[0]},${arg2[0]},${arg3} `)
             let resultFormatted = ""
             let dice = parseInt(arg1[0])
             let sides = parseInt(arg2[0])
@@ -406,7 +396,6 @@ module.exports = function (message, authorID) {
             }else if (message.match(/\//)) {
                 arg2 = arg1[1].split('/')
             }
-            // message.channel.send(`Arguments3: ${arg1[0]},${arg2} `)
             let additionalMessage = ""
             let resultFormatted = ""
             let dice = parseInt(arg1[0])
@@ -446,7 +435,6 @@ module.exports = function (message, authorID) {
 
         if (message.match(/[0-9]+[d][0-9]+/i)) {
             let arg = message.trim().split(/[d]/i)
-            // message.channel.send(`Arguments4: ${arg} `)
             let resultFormatted = ""
             let dice = parseInt(arg[0])
             let sides = parseInt(arg[1])

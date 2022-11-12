@@ -1,10 +1,11 @@
 {
   "name": "throw-em",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "description": "Simple dice discord bot",
   "main": "index.js",
   "scripts": {
     "start": "node index.js",
+    "register": "node deploy-commands.js",
     "dev": "nodemon index.js"
   },
   "keywords": [],

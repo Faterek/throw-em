@@ -1,7 +1,7 @@
 # Throw 'em
 Simple discord bot for simulating dice throws of any kind, you can learn more at [my site](https://fater.cf/project/dice-bot/)
 # How to run
-To run this bot you need NodeJS, bot is tested on NodeJS version 18.12.1.
+To run this bot you need NodeJS, bot is tested on NodeJS version 16.18.0 and 18.12.1.
 First you need to clone this repository and install needed node modules
 
 ```sh
@@ -9,7 +9,19 @@ First you need to clone this repository and install needed node modules
 > npm i
 ```
 
-Then go to `.env` file and paste in your `token` and `application id`, after that all you need is to run either of this commands
+Then go to `.env` file and paste in your `token` and `application id`, after that register slash commands with
+
+```sh
+> npm run register
+```
+
+or
+
+```sh
+> node deploy-commands.js
+```
+
+And finaly run bot with
 
 ```sh
 > node .
