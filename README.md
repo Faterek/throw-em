@@ -41,7 +41,7 @@ So throw 'em like that
 ```
 could give you results of
 ```
- 5  ⟵ [**1**, 2, 2]
+ 5  ⟵ [1, 2, 2]
  11  ⟵ [5, 4, 6]
 ```
 
