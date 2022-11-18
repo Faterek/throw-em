@@ -15,7 +15,7 @@ const client = new Client({
 });
 
 const commandsPath = path.join(__dirname, 'commands');
-const commandFiles = fs.readdirSync(commandsPath).filter(file => file.endsWith('.js'));
+const commandFiles = fs.readdirSync(commandsPath).filter((file: string) => file.endsWith('.js'));
 
 client.once(Events.ClientReady, () => {
     console.log("Working fine!");
@@ -23,7 +23,7 @@ client.once(Events.ClientReady, () => {
 
 client.commands = new Collection();
 
-client.on(Events.InteractionCreate, async interaction => {
+client.on(Events.InteractionCreate, async (interaction: { isChatInputCommand: () => any; commandName: any; reply: (arg0: { content: string; ephemeral: boolean; }) => any; }) => {
 	if (!interaction.isChatInputCommand()) return;
 
 	const command = client.commands.get(interaction.commandName);
@@ -49,16 +49,15 @@ for (const file of commandFiles) {
 	}
 }
 
-client.on("messageCreate", message => {
+client.on("messageCreate", async (message: { author: { bot: any; id: any; }; channel: { send: (arg0: any) => void; }; content: any; delete: () => void; }) => {
     if (message.author.bot) return;
-    message.channel.send(diceRoll(message.content, message.author.id))
-    message.delete()
+    await message.channel.send(diceRoll(message.content, message.author.id, message))
 });
 
 client.login(process.env.TOKEN);
 
 if(webCheck) {
-    const server = http.createServer((req, res) => {
+    const server = http.createServer((req: any, res: { writeHead: (arg0: number, arg1: { 'content-type': string; }) => void; }) => {
         res.writeHead(200, { 'content-type': 'text/html' });
         fs.createReadStream('index.html').pipe(res);
     });

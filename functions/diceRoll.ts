@@ -1,4 +1,4 @@
-module.exports = function (message, authorID) {
+module.exports = function (message: any, authorID: string, msg: any) {
     if (message == 'No roll provided') return message
     if (message.match(/([0-9]+[d][0-9]+[s])|([0-9]+[#][0-9]+[d][0-9]+[s])|([0-9]+[d][0-9]+[\+\-\*\/][0-9]+[s])|([0-9]+[#][0-9]+[d][0-9]+[\+\-\*\/][0-9]+[s])|([0-9]+[#][0-9]+[d][0-9]+[\+][0-9]+[\*][0-9]+[s])/i)) {
         if (message.match(/[0-9]+[#][0-9]+[d][0-9]+[\+][0-9]+[\*][0-9]+[s]/i)) {
@@ -15,7 +15,7 @@ module.exports = function (message, authorID) {
                 let sides = parseInt(arg3[0])
                 let mathArg1 = parseInt(arg4[0])
                 let mathArg2 = parseInt(arg4[1])
-                let result = []
+                let result : number[] = []
                 for (let i = 0; i < dice; i++){
                     var rand = Math.random()
                     result.push(Math.floor(rand * sides) + 1)
@@ -26,7 +26,7 @@ module.exports = function (message, authorID) {
                 suma = suma * mathArg2
                 additionalMessage += "+" + mathArg1 + "×" + mathArg2
                 for (let i = 0; i < dice; i++) {
-                    if (result[i] == 1 | result[i] == sides)
+                    if (result[i] == 1 || result[i] == sides)
                         resultFormatted += "**" + result[i] + "**, "
                     else
                         resultFormatted += `${result[i]}` + ", "
@@ -36,6 +36,11 @@ module.exports = function (message, authorID) {
                 timesToRepeat--
             }
             wiadomosc.substring(0, wiadomosc.length - 2)
+            if(message != null)
+                msg.delete()
+
+            if (wiadomosc.length > 3960)
+                return ("<@" + authorID + "> " + "**Too long**")
             return ("<@" + authorID + "> " + "**" + message + "**" + "\n" + wiadomosc)
         }
 
@@ -61,7 +66,7 @@ module.exports = function (message, authorID) {
                 let dice = parseInt(arg2[0])
                 let sides = parseInt(arg3[0])
                 let mathArg = parseInt(arg3[1])
-                let result = []
+                let result : number[] = []
                 for (let i = 0; i < dice; i++){
                     var rand = Math.random()
                     result.push(Math.floor(rand * sides) + 1)
@@ -83,7 +88,7 @@ module.exports = function (message, authorID) {
                 }
 
                 for (let i = 0; i < dice; i++) {
-                    if (result[i] == 1 | result[i] == sides)
+                    if (result[i] == 1 || result[i] == sides)
                         resultFormatted += "**" + result[i] + "**, "
                     else
                         resultFormatted += `${result[i]}` + ", "
@@ -92,7 +97,11 @@ module.exports = function (message, authorID) {
                 wiadomosc += "` " + suma + " ` ⟵ [" + resultFormatted + "]" + additionalMessage + "\n"
                 timesToRepeat--
             }
-            wiadomosc.substring(0, wiadomosc.length - 2)
+            if(message != null)
+                msg.delete()
+
+            if (wiadomosc.length > 3960)
+                return ("<@" + authorID + "> " + "**Too long**")
             return ("<@" + authorID + "> " + "**" + message + "**" + "\n" + wiadomosc)
         }
 
@@ -105,7 +114,7 @@ module.exports = function (message, authorID) {
                 let resultFormatted = ""
                 let dice = parseInt(arg2[0])
                 let sides = parseInt(arg2[1])
-                let result = []
+                let result : number[] = []
                 for (let i = 0; i < dice; i++){
                     var rand = Math.random()
                     result.push(Math.floor(rand * sides) + 1)
@@ -113,7 +122,7 @@ module.exports = function (message, authorID) {
                 result = result.sort(function(a, b){return a-b}).reverse()
                 let suma = result.reduce((a, b) => a + b, 0)
                 for (let i = 0; i < dice; i++) {
-                    if (result[i] == 1 | result[i] == sides)
+                    if (result[i] == 1 || result[i] == sides)
                         resultFormatted += "**" + result[i] + "**, "
                     else
                         resultFormatted += `${result[i]}` + ", "
@@ -122,7 +131,11 @@ module.exports = function (message, authorID) {
                 wiadomosc += "` " + suma + " ` ⟵ [" + resultFormatted + "]" + "\n"
                 timesToRepeat--
             }
-            wiadomosc.substring(0, wiadomosc.length - 2)
+            if(message != null)
+                msg.delete()
+
+            if (wiadomosc.length > 3960)
+                return ("<@" + authorID + "> " + "**Too long**")
             return ("<@" + authorID + "> " + "**" + message + "**" + "\n" + wiadomosc)
         }
 
@@ -135,7 +148,7 @@ module.exports = function (message, authorID) {
             let sides = parseInt(arg2[0])
             let mathArg1 = parseInt(arg3[0])
             let mathArg2 = parseInt(arg3[1])
-            let result = []
+            let result : number[] = []
             for (let i = 0; i < dice; i++){
                 var rand = Math.random()
                 result.push(Math.floor(rand * sides) + 1)
@@ -146,14 +159,18 @@ module.exports = function (message, authorID) {
             suma = suma * mathArg2
             let additionalMessage = "+" + mathArg1 + "×" + mathArg2
             for (let i = 0; i < dice; i++) {
-                if (result[i] == 1 | result[i] == sides)
+                if (result[i] == 1 || result[i] == sides)
                     resultFormatted += "**" + result[i] + "**, "
                 else
                     resultFormatted += `${result[i]}` + ", "
             }
             resultFormatted = resultFormatted.substring(0, resultFormatted.length - 2)
             let wiadomosc = "` " + suma + " ` ⟵ [" + resultFormatted + "]" + additionalMessage + "\n"
-            wiadomosc.substring(0, wiadomosc.length - 2)
+            if(message != null)
+                msg.delete()
+
+            if (wiadomosc.length > 3960)
+                return ("<@" + authorID + "> " + "**Too long**")
             return ("<@" + authorID + "> " + "**" + message + "**" + "\n" + wiadomosc)
         }
 
@@ -174,7 +191,7 @@ module.exports = function (message, authorID) {
             let dice = parseInt(arg1[0])
             let sides = parseInt(arg2[0])
             let mathArg = parseInt(arg2[1])
-            let result = []
+            let result : number[] = []
             for (let i = 0; i < dice; i++){
                 var rand = Math.random()
                 result.push(Math.floor(rand * sides) + 1)
@@ -196,14 +213,18 @@ module.exports = function (message, authorID) {
             }
 
             for (let i = 0; i < dice; i++) {
-                if (result[i] == 1 | result[i] == sides)
+                if (result[i] == 1 || result[i] == sides)
                     resultFormatted += "**" + result[i] + "**, "
                 else
                     resultFormatted += `${result[i]}` + ", "
             }
             resultFormatted = resultFormatted.substring(0, resultFormatted.length - 2)
             let wiadomosc = "` " + suma + " ` ⟵ [" + resultFormatted + "]" + additionalMessage + "\n"
-            wiadomosc.substring(0, wiadomosc.length - 2)
+            if(message != null)
+                msg.delete()
+
+            if (wiadomosc.length > 3960)
+                return ("<@" + authorID + "> " + "**Too long**")
             return ("<@" + authorID + "> " + "**" + message + "**" + "\n" + wiadomosc)
         }
 
@@ -212,7 +233,7 @@ module.exports = function (message, authorID) {
             let resultFormatted = ""
             let dice = parseInt(arg[0])
             let sides = parseInt(arg[1])
-            let result = []
+            let result : number[] = []
             for (let i = 0; i < dice; i++){
                     var rand = Math.random()
                     result.push(Math.floor(rand * sides) + 1)
@@ -220,14 +241,18 @@ module.exports = function (message, authorID) {
             result = result.sort(function(a, b){return a-b}).reverse()
             let suma = result.reduce((a, b) => a + b, 0)
             for (let i = 0; i < dice; i++) {
-                if (result[i] == 1 | result[i] == sides)
+                if (result[i] == 1 || result[i] == sides)
                     resultFormatted += "**" + result[i] + "**, "
                 else
                     resultFormatted += `${result[i]}` + ", "
             }
             resultFormatted = resultFormatted.substring(0, resultFormatted.length - 2)
             let wiadomosc = "` " + suma + " ` ⟵ [" + resultFormatted + "]" + "\n"
-            wiadomosc.substring(0, wiadomosc.length - 2)
+            if(message != null)
+                msg.delete()
+
+            if (wiadomosc.length > 3960)
+                return ("<@" + authorID + "> " + "**Too long**")
             return ("<@" + authorID + "> " + "**" + message + "**" + "\n" + wiadomosc)
         }
     }
@@ -246,7 +271,7 @@ module.exports = function (message, authorID) {
                 let sides = parseInt(arg3[0])
                 let mathArg1 = parseInt(arg4[0])
                 let mathArg2 = parseInt(arg4[1])
-                let result = []
+                let result : number[] = []
                 for (let i = 0; i < dice; i++){
                     var rand = Math.random()
                     result.push(Math.floor(rand * sides) + 1)
@@ -256,7 +281,7 @@ module.exports = function (message, authorID) {
                 suma = suma * mathArg2
                 additionalMessage += "+" + mathArg1 + "×" + mathArg2
                 for (let i = 0; i < dice; i++) {
-                    if (result[i] == 1 | result[i] == sides)
+                    if (result[i] == 1 || result[i] == sides)
                         resultFormatted += "**" + result[i] + "**, "
                     else
                         resultFormatted += `${result[i]}` + ", "
@@ -265,7 +290,11 @@ module.exports = function (message, authorID) {
                 wiadomosc += "` " + suma + " ` ⟵ [" + resultFormatted + "]" + additionalMessage + "\n"
                 timesToRepeat--
             }
-            wiadomosc.substring(0, wiadomosc.length - 2)
+            if(message != null)
+                msg.delete()
+
+            if (wiadomosc.length > 3960)
+                return ("<@" + authorID + "> " + "**Too long**")
             return ("<@" + authorID + "> " + "**" + message + "**" + "\n" + wiadomosc)
         }
 
@@ -291,7 +320,7 @@ module.exports = function (message, authorID) {
                 let dice = parseInt(arg2[0])
                 let sides = parseInt(arg3[0])
                 let mathArg = parseInt(arg3[1])
-                let result = []
+                let result : number[] = []
                 for (let i = 0; i < dice; i++){
                     var rand = Math.random()
                     result.push(Math.floor(rand * sides) + 1)
@@ -312,7 +341,7 @@ module.exports = function (message, authorID) {
                 }
 
                 for (let i = 0; i < dice; i++) {
-                    if (result[i] == 1 | result[i] == sides)
+                    if (result[i] == 1 || result[i] == sides)
                         resultFormatted += "**" + result[i] + "**, "
                     else
                         resultFormatted += `${result[i]}` + ", "
@@ -321,7 +350,11 @@ module.exports = function (message, authorID) {
                 wiadomosc += "` " + suma + " ` ⟵ [" + resultFormatted + "]" + additionalMessage + "\n"
                 timesToRepeat--
             }
-            wiadomosc.substring(0, wiadomosc.length - 2)
+            if(message != null)
+                msg.delete()
+
+            if (wiadomosc.length > 3960)
+                return ("<@" + authorID + "> " + "**Too long**")
             return ("<@" + authorID + "> " + "**" + message + "**" + "\n" + wiadomosc)
         }
 
@@ -334,14 +367,14 @@ module.exports = function (message, authorID) {
                 let resultFormatted = ""
                 let dice = parseInt(arg2[0])
                 let sides = parseInt(arg2[1])
-                let result = []
+                let result : number[] = []
                 for (let i = 0; i < dice; i++) {
                     var rand = Math.random()
                     result.push(Math.floor(rand * sides) + 1)
                 }
                 let suma = result.reduce((a, b) => a + b, 0)
                 for (let i = 0; i < dice; i++) {
-                    if (result[i] == 1 | result[i] == sides)
+                    if (result[i] == 1 || result[i] == sides)
                         resultFormatted += "**" + result[i] + "**, "
                     else
                         resultFormatted += `${result[i]}` + ", "
@@ -350,7 +383,11 @@ module.exports = function (message, authorID) {
                 wiadomosc += "` " + suma + " ` ⟵ [" + resultFormatted + "]" + "\n"
                 timesToRepeat--
             }
-            wiadomosc.substring(0, wiadomosc.length - 2)
+            if(message != null)
+                msg.delete()
+
+            if (wiadomosc.length > 3960)
+                return ("<@" + authorID + "> " + "**Too long**")
             return ("<@" + authorID + "> " + "**" + message + "**" + "\n" + wiadomosc)
         }
 
@@ -363,7 +400,7 @@ module.exports = function (message, authorID) {
             let sides = parseInt(arg2[0])
             let mathArg1 = parseInt(arg3[0])
             let mathArg2 = parseInt(arg3[1])
-            let result = []
+            let result : number[] = []
             for (let i = 0; i < dice; i++){
                 var rand = Math.random()
                 result.push(Math.floor(rand * sides) + 1)
@@ -373,14 +410,18 @@ module.exports = function (message, authorID) {
             suma = suma * mathArg2
             let additionalMessage = "+" + mathArg1 + "×" + mathArg2
             for (let i = 0; i < dice; i++) {
-                if (result[i] == 1 | result[i] == sides)
+                if (result[i] == 1 || result[i] == sides)
                     resultFormatted += "**" + result[i] + "**, "
                 else
                     resultFormatted += `${result[i]}` + ", "
             }
             resultFormatted = resultFormatted.substring(0, resultFormatted.length - 2)
             let wiadomosc = "` " + suma + " ` ⟵ [" + resultFormatted + "]" + additionalMessage + "\n"
-            wiadomosc.substring(0, wiadomosc.length - 2)
+            if(message != null)
+                msg.delete()
+
+            if (wiadomosc.length > 3960)
+                return ("<@" + authorID + "> " + "**Too long**")
             return ("<@" + authorID + "> " + "**" + message + "**" + "\n" + wiadomosc)
         }
 
@@ -401,7 +442,7 @@ module.exports = function (message, authorID) {
             let dice = parseInt(arg1[0])
             let sides = parseInt(arg2[0])
             let mathArg = parseInt(arg2[1])
-            let result = []
+            let result : number[] = []
             for (let i = 0; i < dice; i++){
                 var rand = Math.random()
                 result.push(Math.floor(rand * sides) + 1)
@@ -422,14 +463,18 @@ module.exports = function (message, authorID) {
             }
 
             for (let i = 0; i < dice; i++) {
-                if (result[i] == 1 | result[i] == sides)
+                if (result[i] == 1 || result[i] == sides)
                     resultFormatted += "**" + result[i] + "**, "
                 else
                     resultFormatted += `${result[i]}` + ", "
             }
             resultFormatted = resultFormatted.substring(0, resultFormatted.length - 2)
             let wiadomosc = "` " + suma + " ` ⟵ [" + resultFormatted + "]" + additionalMessage + "\n"
-            wiadomosc.substring(0, wiadomosc.length - 2)
+            if(message != null)
+                msg.delete()
+
+            if (wiadomosc.length > 3960)
+                return ("<@" + authorID + "> " + "**Too long**")
             return ("<@" + authorID + "> " + "**" + message + "**" + "\n" + wiadomosc)
         }
 
@@ -438,21 +483,25 @@ module.exports = function (message, authorID) {
             let resultFormatted = ""
             let dice = parseInt(arg[0])
             let sides = parseInt(arg[1])
-            let result = []
+            let result : number[] = []
             for (let i = 0; i < dice; i++){
                 var rand = Math.random()
                 result.push(Math.floor(rand * sides) + 1)
             }
             let suma = result.reduce((a, b) => a + b, 0)
             for (let i = 0; i < dice; i++) {
-                if (result[i] == 1 | result[i] == sides)
+                if (result[i] == 1 || result[i] == sides)
                     resultFormatted += "**" + result[i] + "**, "
                 else
                     resultFormatted += `${result[i]}` + ", "
             }
             resultFormatted = resultFormatted.substring(0, resultFormatted.length - 2)
             let wiadomosc = "` " + suma + " ` ⟵ [" + resultFormatted + "]" + "\n"
-            wiadomosc.substring(0, wiadomosc.length - 2)
+            if(message != null)
+                msg.delete()
+
+            if (wiadomosc.length > 3960)
+                return ("<@" + authorID + "> " + "**Too long**")
             return ("<@" + authorID + "> " + "**" + message + "**" + "\n" + wiadomosc)
         }
     }
