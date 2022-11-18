@@ -4,7 +4,7 @@ const http = require('http')
 const fs = require('node:fs');
 const path = require('node:path');
 const { Client, Collection, Events, GatewayIntentBits } = require("discord.js");
-const diceRoll = require('./functions/diceRoll')
+const diceRoll = require('./functions/diceRoll.ts')
 
 const client = new Client({
     intents: [
