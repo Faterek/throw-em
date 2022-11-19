@@ -1,2 +1,9 @@
-node_modules
+# files
+.vscode
 .env*
+package-lock.json
+yarn.lock
+
+# folders
+build
+node_modules
