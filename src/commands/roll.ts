@@ -15,6 +15,20 @@ export class Roll {
     })
     roll: string,
     @SlashOption({
+        description: "Math on throw result",
+        name: "math-result",
+        required: false,
+        type: ApplicationCommandOptionType.String,
+    })
+    resultMath: string,
+    @SlashOption({
+        description: "Math on every throw",
+        name: "math-rolls",
+        required: false,
+        type: ApplicationCommandOptionType.String,
+    })
+    throwMath: string,
+    @SlashOption({
         description: "Sorting",
         name: "sort",
         required: false,
