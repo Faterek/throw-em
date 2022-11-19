@@ -37,6 +37,7 @@ export class GameMaster {
     sort: boolean,
     interaction: CommandInteraction
   ): Promise<void> {
-    interaction.reply({content: `<@${ interaction.user.id }> **${ roll }**\n${await diceRoll(roll, sort)}`, ephemeral: true});
+    const interactionResult: string = `<@${ interaction.user.id }> **${ roll }**\n${await diceRoll(roll, sort)}`
+    interaction.reply({content: interactionResult, ephemeral: true});
   }
 }
