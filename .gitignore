@@ -1,9 +1,6 @@
-# files
 .vscode
 .env*
 package-lock.json
-yarn.lock
-
-# folders
+pnpm-lock.yaml
 build
 node_modules
