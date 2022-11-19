@@ -1,5 +1,5 @@
 .vscode
-.env*
+.env.dev
 package-lock.json
 pnpm-lock.yaml
 build
