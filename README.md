@@ -1,5 +1,5 @@
 # Throw 'em
-Simple discord bot for simulating dice throws of any kind, you can learn more at [my website](https://fater.cf/project/dice-bot/).
+Simple discord bot for simulating dice throws of any kind.
 # How to run
 To run this bot you need NodeJS, bot is tested on NodeJS version 18.12.1.
 First you need to clone this repository and install needed node modules
