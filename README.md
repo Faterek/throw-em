@@ -1,3 +1,5 @@
+# Instead use https://github.com/EssenceBot/essence-bot with dice roller module
+
 # Throw 'em
 Simple discord bot for simulating dice throws of any kind.
 # How to run
